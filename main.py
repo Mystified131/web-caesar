@@ -39,9 +39,19 @@ def index():
 
 </form>
 """
-@app.route("/")
+@app.route("/", methods=['POST'])
+
 def encrypt():
-    print(rot)
-    print(text)
+
+    anstr = []
+    for ans in request.form.values():
+        anstr.append(ans)
+    rota = anstr[0]
+    rotb = int(rota)
+    texta = anstr[1]
+    solut = rotate_string(texta, rotb)
+    expstr = "The encoded text is:" + solut
+    shwstr = "<h1>" + expstr + "</h1>"
+    return shwstr
 
 app.run()
