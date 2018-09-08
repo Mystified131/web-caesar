@@ -22,17 +22,17 @@ def index():
                     font: 16px sans-serif;
                     border-radius: 10px;
             }
-                textarea {{
+                textarea {
                     margin: 10px 0;
                     width: 540px;
                     height: 120px;
-                }}
+                }
             </style>
         </head>
         <body>
             Rotate by: <input type = "text" name = "rot" value = "0">
             <br><br>
-            <textarea name = "text">{0}</textarea>
+            <textarea name = "text"></textarea>
             <br><br>
             <input type="submit" />
         </body>
@@ -53,8 +53,40 @@ def encrypt():
     rotb = int(rota)
     texta = anstr[1]
     solut = rotate_string(texta, rotb)
-    expstr = "The encoded text is:" + solut
-    shwstr = "<h1>" + expstr + "</h1>"
-    return shwstr
+    pagot = """
+    <form method = 'POST'>
+    <!DOCTYPE html>
+
+    <html>
+        <head>
+            <style>
+                form {
+                    background-color: #eee;
+                    padding: 20px;
+                    margin: 0 auto;
+                    width: 540px;
+                    font: 16px sans-serif;
+                    border-radius: 10px;
+            }
+                textarea {
+                    margin: 10px 0;
+                    width: 540px;
+                    height: 120px;
+                }
+            </style>
+        </head>
+        <body>
+            Rotate by: <input type = "text" name = "rot">
+            <br><br>
+            <textarea name = "text">""" + solut + """</textarea>
+            <br><br>
+            <input type="submit" />
+        </body>
+    </html>
+
+    </form>
+
+    """
+    return pagot
 
 app.run()
