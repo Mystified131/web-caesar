@@ -1,5 +1,6 @@
 from flask import Flask, request
-from caesar import rotate_string
+#from caesar import rotate_string
+from SeizApp import Seizapp
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -52,7 +53,7 @@ def encrypt():
     rota = anstr[0]
     rotb = int(rota)
     texta = anstr[1]
-    solut = rotate_string(texta, rotb)
+    solut = Seizapp(texta, rotb)
     pagot = """
     <form method = 'POST'>
     <!DOCTYPE html>
