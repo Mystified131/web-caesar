@@ -12,7 +12,7 @@ wdlst = []
 nlst = []
 
 for ele in rstr:
-    wdlst.append(ele)
+    wdlst.append(ele.lower())
 
 print(wdlst)
 
